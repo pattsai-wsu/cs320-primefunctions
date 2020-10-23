@@ -13,12 +13,18 @@ function primeGen(n) {
   const z = n / 2;
   while (h < z) {
     k = h + 1;
+    while (primesList[k] === -3) {
+      k += 1;
+    }
     while (k <= n - 2) {
       const remain = primesList[k] % primesList[h];
       if (remain === 0) {
         primesList[k] = -3;
       }
       k += 1;
+      while (primesList[k] === -3) {
+        k += 1;
+      }
     }
     k = 0;
     h += 1;
@@ -35,4 +41,16 @@ function primeGen(n) {
   }
   return (primesList);
 }
-console.log(primeGen(45));
+
+function cumulativeSum(numList) {
+  let i = 1;
+  let sum = 0;
+  while (i < numList.length) {
+    sum = numList[i - 1] + numList[i];
+    numList[i] = sum;
+    i += 1;
+  }
+  return (numList[numList.length - 1]);
+}
+console.log(primeGen(10));
+console.log(cumulativeSum(primeGen(10)));
