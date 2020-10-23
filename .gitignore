@@ -27,3 +27,4 @@ node_modules/
 *.iml
 *.xml
 .eslintrc
+package-lock.json
