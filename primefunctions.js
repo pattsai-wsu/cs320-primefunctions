@@ -1,3 +1,6 @@
+// Name: Patrick Tsai
+// CS320 Homework 4 due Nov. 2, 2020
+
 function primeGen(n) {
   const primesList = [];
   let j = 1;
