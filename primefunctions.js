@@ -56,7 +56,8 @@ function cumulativeSum(numList) {
     numList[i] = sum;
     i += 1;
   }
-  return (numList[numList.length - 1]);
+  const last = numList.length - 1;
+  return (numList[last]);
 }
-console.log(primeGen(100));
-console.log(cumulativeSum(primeGen(100)));
+console.log(primeGen(10000));
+console.log(cumulativeSum(primeGen(10000)));
