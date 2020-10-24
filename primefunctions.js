@@ -15,6 +15,9 @@ function primeGen(n) {
   let k = 0;
   const z = n / 2;
   while (h < z) {
+    while (primesList[h] === -3) {
+      h += 1;
+    }
     k = h + 1;
     while (primesList[k] === -3) {
       k += 1;
@@ -55,5 +58,5 @@ function cumulativeSum(numList) {
   }
   return (numList[numList.length - 1]);
 }
-console.log(primeGen(10));
-console.log(cumulativeSum(primeGen(10)));
+console.log(primeGen(100));
+console.log(cumulativeSum(primeGen(100)));
