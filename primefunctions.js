@@ -3,6 +3,9 @@
 
 function primeGen(n) {
   const primesList = [];
+  if (n < 2) {
+    return (primesList);
+  }
   let j = 1;
   let y = 2;
   primesList[0] = y;
@@ -59,5 +62,45 @@ function cumulativeSum(numList) {
   const last = numList.length - 1;
   return (numList[last]);
 }
-console.log(primeGen(10000));
-console.log(cumulativeSum(primeGen(10000)));
+
+function maxPrimeSum(n) {
+  const maxPrimeSumArr = [];
+  const maxPrimeNumList = primeGen(n);
+  const primeGenArrLen = maxPrimeNumList.length;
+  const primeTargetNum = maxPrimeNumList[primeGenArrLen - 1];
+
+  //console.log(`prime Target Num: ${primeTargetNum}`);
+  let flag = 0;
+  let i = 0;
+  let numListSum = 0;
+  numListSum += maxPrimeNumList[i];
+  let counter = 1;
+  //console.log(`numListSum value : ${numListSum}`);
+  while (numListSum !== primeTargetNum) {
+    if (numListSum > primeTargetNum) {
+      counter = 1;
+      numListSum = 0;
+      flag += 1;
+      if (flag === primeGenArrLen - 1) {
+        //console.log('no consecutive list of equl to prime number');
+        return ([maxPrimeNumList[flag], 1]);
+      }
+      //console.log(`flag : ${flag}`);
+      i = flag;
+      numListSum += maxPrimeNumList[i];
+      //console.log(`numListSum value : ${numListSum}`);
+    }
+    i += 1;
+    counter += 1;
+    numListSum += maxPrimeNumList[i];
+    //console.log(`numListSum value : ${numListSum}`);
+  }
+  maxPrimeSumArr[0] = primeTargetNum;
+  maxPrimeSumArr[1] = counter;
+
+  return (maxPrimeSumArr);
+}
+
+console.log(primeGen(50));
+console.log(cumulativeSum(primeGen(50)));
+console.log(maxPrimeSum(100));
