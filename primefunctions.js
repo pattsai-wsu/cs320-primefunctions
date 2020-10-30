@@ -4,7 +4,8 @@
 function primeGen(n) {
   const primesList = [];
   if (n < 2) {
-    return (primesList);
+    console.log('there are no prime numbers less than 2');
+    return ([]);
   }
   let j = 1;
   let y = 2;
@@ -39,7 +40,7 @@ function primeGen(n) {
     h += 1;
   }
   let i = 0;
-  // altereed a splice function found on stackOverflow
+  // altered a splice function found on stackOverflow
   // https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array
   while (i < primesList.length) {
     if (primesList[i] === -3) {
@@ -51,7 +52,11 @@ function primeGen(n) {
   return (primesList);
 }
 
-function cumulativeSum(numList) {
+function cumulativeSum(numListIn) {
+  const numList = numListIn;
+  if (numList.length < 1) {
+    return ('there are no prime numbers less than 2');
+  }
   let i = 1;
   let sum = 0;
   while (i < numList.length) {
@@ -64,43 +69,60 @@ function cumulativeSum(numList) {
 }
 
 function maxPrimeSum(n) {
+  let flag = 0;
+  let counter = 1;
+  let i = 0;
+  let q = 0;
+  let numListSum = 0;
   const maxPrimeSumArr = [];
   const maxPrimeNumList = primeGen(n);
   const primeGenArrLen = maxPrimeNumList.length;
-  const primeTargetNum = maxPrimeNumList[primeGenArrLen - 1];
+  let primeTargetNum = maxPrimeNumList[q];
 
-  //console.log(`prime Target Num: ${primeTargetNum}`);
-  let flag = 0;
-  let i = 0;
-  let numListSum = 0;
   numListSum += maxPrimeNumList[i];
-  let counter = 1;
-  //console.log(`numListSum value : ${numListSum}`);
-  while (numListSum !== primeTargetNum) {
-    if (numListSum > primeTargetNum) {
-      counter = 1;
-      numListSum = 0;
-      flag += 1;
-      if (flag === primeGenArrLen - 1) {
-        //console.log('no consecutive list of equl to prime number');
-        return ([maxPrimeNumList[flag], 1]);
-      }
-      //console.log(`flag : ${flag}`);
-      i = flag;
-      numListSum += maxPrimeNumList[i];
-      //console.log(`numListSum value : ${numListSum}`);
-    }
-    i += 1;
-    counter += 1;
-    numListSum += maxPrimeNumList[i];
-    //console.log(`numListSum value : ${numListSum}`);
-  }
-  maxPrimeSumArr[0] = primeTargetNum;
-  maxPrimeSumArr[1] = counter;
 
-  return (maxPrimeSumArr);
+  while (q < primeGenArrLen) {
+    while (numListSum !== primeTargetNum) {
+      if (numListSum > primeTargetNum) {
+        flag += 1;
+        if (flag === q) {
+          break;
+        }
+        counter = 0;
+        i = flag - 1;
+        numListSum = 0;
+      }
+      i += 1;
+      counter += 1;
+      numListSum += maxPrimeNumList[i];
+    }
+    if (flag === 0 || flag !== q) {
+      maxPrimeSumArr[q] = [primeTargetNum, counter];
+    } else {
+      maxPrimeSumArr[q] = [primeTargetNum, 1];
+    }
+    counter = 1;
+    flag = 0;
+    q += 1;
+    primeTargetNum = maxPrimeNumList[q];
+    i = 0;
+    numListSum = 0;
+    numListSum += maxPrimeNumList[i];
+  }
+
+  // altered sort function found on stack overflow
+  // https://stackoverflow.com/questions/16096872/how-to-sort-2-dimensional-array-by-column-value
+  function compare(current, next) {
+    if (current[1] === next[1]) {
+      return 0;
+    }
+    return (current[1] < next[1]) ? -1 : 1;
+  }
+
+  const sortedArr = maxPrimeSumArr.sort(compare);
+  return (sortedArr[maxPrimeNumList.length - 1]);
 }
 
-console.log(primeGen(50));
-console.log(cumulativeSum(primeGen(50)));
+console.log(primeGen(100));
+console.log(cumulativeSum(primeGen(100)));
 console.log(maxPrimeSum(100));
