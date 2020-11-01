@@ -1,10 +1,11 @@
 // Name: Patrick Tsai
+// Student ID: 011709316
 // CS320 Homework 4 due Nov. 2, 2020
 
 function primeGen(n) {
   const primesList = [];
   if (n < 2) {
-    console.log('there are no prime numbers less than 2');
+    console.log('there are no prime numbers less than 2 - return empty array');
     return ([]);
   }
   let j = 1;
@@ -64,8 +65,8 @@ function cumulativeSum(numListIn) {
     numList[i] = sum;
     i += 1;
   }
-  const last = numList.length - 1;
-  return (numList[last]);
+  // const last = numList.length - 1;
+  return (numList);
 }
 
 function maxPrimeSum(n) {
@@ -123,6 +124,7 @@ function maxPrimeSum(n) {
   return (sortedArr[maxPrimeNumList.length - 1]);
 }
 
-console.log(primeGen(100));
-console.log(cumulativeSum(primeGen(100)));
+console.log(primeGen(10));
+console.log(cumulativeSum([1, 2, 3, 4]));
 console.log(maxPrimeSum(100));
+console.log(maxPrimeSum(1000));
