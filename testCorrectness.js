@@ -29,4 +29,18 @@ describe('primefunctions', function () {
       chai.expect(cumulativeSum([10, 11, 12, 13, 14])).to.have.lengthOf(5);
     });
   });
+  describe('maxPrimeSum()', function () {
+    it('maxPrimeSum(100) should return [41, 6]', function () {
+      chai.expect(maxPrimeSum(100)).to.include.members([41, 6]);
+    });
+    it('maxPrimeSum(100) should be length 2', function () {
+      chai.expect(maxPrimeSum(100)).to.have.lengthOf(2);
+    });
+    it('maxPrimeSum(1000) should return [953, 21]', function () {
+      chai.expect(maxPrimeSum(1000)).to.include.members([953, 21]);
+    });
+    it('maxPrimeSum(1000) should be length 2', function () {
+      chai.expect(maxPrimeSum(1000)).to.have.lengthOf(2);
+    });
+  });
 });
