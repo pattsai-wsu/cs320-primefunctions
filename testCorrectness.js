@@ -2,45 +2,27 @@
 
 describe('primefunctions', function () {
   describe('primeGen()', function () {
-    it('primeGen(10) should return [ 2, 3, 5, 7 ]', function () {
+    it('primeGen(10) = [ 2, 3, 5, 7 ]', function () {
       chai.expect(primeGen(10)).to.include.members([2, 3, 5, 7]);
     });
-    it('primeGen(10) should be length 4', function () {
-      chai.expect(primeGen(10)).to.have.lengthOf(4);
-    });
-    it('primeGen(20) should return [ 2, 3, 5, 7, 11, 13, 17, 19 ]', function () {
+    it('primeGen(20) = [ 2, 3, 5, 7, 11, 13, 17, 19 ]', function () {
       chai.expect(primeGen(20)).to.include.members([2, 3, 5, 7, 11, 13, 17, 19]);
-    });
-    it('primeGen(20) should be length 8', function () {
-      chai.expect(primeGen(20)).to.have.lengthOf(8);
     });
   });
   describe('cumulativeSum()', function () {
-    it('cumulativeSum([1, 2, 3, 4]) should return [ 1, 3, 6, 10 ]', function () {
+    it('cumulativeSum([1, 2, 3, 4]) = [ 1, 3, 6, 10 ]', function () {
       chai.expect(cumulativeSum([1, 2, 3, 4])).to.include.members([1, 3, 6, 10]);
     });
-    it('cumulativeSum([1, 2, 3, 4]) should be length 4', function () {
-      chai.expect(cumulativeSum([1, 2, 3, 4])).to.have.lengthOf(4);
-    });
-    it('cumulativeSum([10, 11, 12, 13, 14]) should return [10, 21, 33, 46, 60]', function () {
+    it('cumulativeSum([10, 11, 12, 13, 14]) = [10, 21, 33, 46, 60]', function () {
       chai.expect(cumulativeSum([10, 11, 12, 13, 14])).to.include.members([10, 21, 33, 46, 60]);
-    });
-    it('cumulativeSum([10, 11, 12, 13, 14]) should be length 5', function () {
-      chai.expect(cumulativeSum([10, 11, 12, 13, 14])).to.have.lengthOf(5);
     });
   });
   describe('maxPrimeSum()', function () {
-    it('maxPrimeSum(100) should return [41, 6]', function () {
+    it('maxPrimeSum(100) = [41, 6]', function () {
       chai.expect(maxPrimeSum(100)).to.include.members([41, 6]);
     });
-    it('maxPrimeSum(100) should be length 2', function () {
-      chai.expect(maxPrimeSum(100)).to.have.lengthOf(2);
-    });
-    it('maxPrimeSum(1000) should return [953, 21]', function () {
+    it('maxPrimeSum(1000) = [953, 21]', function () {
       chai.expect(maxPrimeSum(1000)).to.include.members([953, 21]);
-    });
-    it('maxPrimeSum(1000) should be length 2', function () {
-      chai.expect(maxPrimeSum(1000)).to.have.lengthOf(2);
     });
   });
 });
