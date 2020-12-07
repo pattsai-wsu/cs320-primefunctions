@@ -1,12 +1,14 @@
-// global primeGen, cumulativeSum, maxPrimeSum
+/* global primeGen, cumulativeSum, maxPrimeSum */
 
 describe('primefunctions', function () {
   describe('primeGen()', function () {
     it('primeGen(10) = [ 2, 3, 5, 7 ]', function () {
-      chai.expect(primeGen(10)).to.include.members([2, 3, 5, 7]);
+      chai.expect(primeGen(10)).to.deep.equal([2, 3, 5, 7]);
+      // chai.expect(primeGen(10)).to.include.members([2, 3, 5, 7]);
     });
     it('primeGen(20) = [ 2, 3, 5, 7, 11, 13, 17, 19 ]', function () {
-      chai.expect(primeGen(20)).to.include.members([2, 3, 5, 7, 11, 13, 17, 19]);
+      chai.expect(primeGen(20)).to.deep.equal([2, 3, 5, 7, 11, 13, 17, 19]);
+      // chai.expect(primeGen(20)).to.include.members([2, 3, 5, 7, 11, 13, 17, 19]);
     });
   });
   describe('cumulativeSum()', function () {
