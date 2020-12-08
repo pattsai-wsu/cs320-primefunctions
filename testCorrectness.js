@@ -21,10 +21,10 @@ describe('primefunctions', function () {
   });
   describe('maxPrimeSum()', function () {
     it('maxPrimeSum(100) = [41, 6]', function () {
-      chai.expect(maxPrimeSum(100)).to.include.members([41, 6]);
+      chai.expect(maxPrimeSum(100)).to.deep.equal([41, 6]);
     });
     it('maxPrimeSum(1000) = [953, 21]', function () {
-      chai.expect(maxPrimeSum(1000)).to.include.members([953, 21]);
+      chai.expect(maxPrimeSum(1000)).to.deep.equal([953, 21]);
     });
   });
 });
