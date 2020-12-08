@@ -53,6 +53,7 @@ function primeGen(n) {
   return (primesList);
 }
 
+// eslint-disable-next-line no-unused-vars
 function cumulativeSum(numListIn) {
   const numList = numListIn;
   if (numList.length < 1) {
@@ -69,6 +70,7 @@ function cumulativeSum(numListIn) {
   return (numList);
 }
 
+// eslint-disable-next-line no-unused-vars
 function maxPrimeSum(n) {
   let flag = 1;
   let counter = 1;
@@ -80,7 +82,6 @@ function maxPrimeSum(n) {
   const primeGenArrLen = maxPrimeNumList.length;
   let primeTargetNum = maxPrimeNumList[q];
   let maxCounter = 1;
-  let maxPrimeVal = 2;
   let maxQ = 0;
 
   numListSum += maxPrimeNumList[i];
@@ -90,6 +91,10 @@ function maxPrimeSum(n) {
       if (numListSum > primeTargetNum) {
         flag += 1;
         if (flag > (q / (flag * flag))) {
+          // changed this statement to stop the checking for consecutive
+          // sums at a certain index, so it won't run till the index
+          // reaches the target value I'm looking for. it didn't help
+          // much
           flag = q;
           break;
         }
@@ -116,7 +121,15 @@ function maxPrimeSum(n) {
     primeTargetNum = maxPrimeNumList[q];
     i = 1;
     numListSum = 5;
+
+    // instead of using a summation I use some base values for the sum
+    // at the beginning of the loop, I thought it would reduce the number
+    // of querries to the ith index at the beginning
   }
+  // took out the section that sorts the array and returns the element with the
+  // largest consecutive numbers added
+  // instead I keep track of that index of the element with the largest
+  // consecutive sum
 
   return (maxPrimeSumArr[maxQ]);
 }

@@ -53,6 +53,7 @@ function primeGen(n) {
   return (primesList);
 }
 
+// eslint-disable-next-line no-unused-vars
 function cumulativeSum(numListIn) {
   const numList = numListIn;
   if (numList.length < 1) {
@@ -69,6 +70,7 @@ function cumulativeSum(numListIn) {
   return (numList);
 }
 
+// eslint-disable-next-line no-unused-vars
 function maxPrimeSum(n) {
   let flag = 0;
   let counter = 1;

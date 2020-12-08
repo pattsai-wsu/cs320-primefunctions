@@ -1,6 +1,6 @@
 /* global maxPrimeSum */
 
-describe('primefunctionsOptimized', function () {
+describe('primefunctionsOriginal', function () {
   describe('maxPrimeSum()', function () {
     it('maxPrimeSum(10000) should take less than 75ms', function () {
       this.timeout(85);
