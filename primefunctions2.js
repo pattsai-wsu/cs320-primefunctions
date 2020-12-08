@@ -79,6 +79,8 @@ function maxPrimeSum(n) {
   const maxPrimeNumList = primeGen(n);
   const primeGenArrLen = maxPrimeNumList.length;
   let primeTargetNum = maxPrimeNumList[q];
+  let maxCounter = 1;
+  let maxQ = 0;
 
   numListSum += maxPrimeNumList[i];
 
@@ -86,7 +88,8 @@ function maxPrimeSum(n) {
     while (numListSum !== primeTargetNum) {
       if (numListSum > primeTargetNum) {
         flag += 1;
-        if (flag === q) {
+        if (flag > (q / flag)) {
+          flag = q;
           break;
         }
         counter = 0;
@@ -94,10 +97,14 @@ function maxPrimeSum(n) {
         numListSum = 0;
       }
       i += 1;
-      counter += 1;
       numListSum += maxPrimeNumList[i];
+      counter += 1;
     }
     if (flag === 0 || flag !== q) {
+      if (counter > maxCounter) {
+        maxCounter = counter;
+        maxQ = q;
+      }
       maxPrimeSumArr[q] = [primeTargetNum, counter];
     } else {
       maxPrimeSumArr[q] = [primeTargetNum, 1];
@@ -107,26 +114,9 @@ function maxPrimeSum(n) {
     q += 1;
     primeTargetNum = maxPrimeNumList[q];
     i = 0;
-    numListSum = 0;
-    numListSum += maxPrimeNumList[i];
+    numListSum = 2;
   }
 
-  // altered sort function found on stack overflow
-  // https://stackoverflow.com/questions/16096872/how-to-sort-2-dimensional-array-by-column-value
-  function compare(current, next) {
-    if (current[1] === next[1]) {
-      return 0;
-    }
-    return (current[1] < next[1]) ? -1 : 1;
-  }
-
-  const sortedArr = maxPrimeSumArr.sort(compare);
-  return (sortedArr[maxPrimeNumList.length - 1]);
-  // return (sortedArr);
+  return (maxPrimeSumArr[maxQ]);
 }
-
-// console.log(primeGen(10));
-// console.log(cumulativeSum([1, 2, 3, 4]));
-// console.log(cumulativeSum(primeGen(10)));
-// console.log(maxPrimeSum(100));
 // console.log(maxPrimeSum(100000));
