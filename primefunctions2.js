@@ -70,7 +70,7 @@ function cumulativeSum(numListIn) {
 }
 
 function maxPrimeSum(n) {
-  let flag = 0;
+  let flag = 1;
   let counter = 1;
   let i = 0;
   let q = 0;
@@ -80,6 +80,7 @@ function maxPrimeSum(n) {
   const primeGenArrLen = maxPrimeNumList.length;
   let primeTargetNum = maxPrimeNumList[q];
   let maxCounter = 1;
+  let maxPrimeVal = 2;
   let maxQ = 0;
 
   numListSum += maxPrimeNumList[i];
@@ -88,17 +89,17 @@ function maxPrimeSum(n) {
     while (numListSum !== primeTargetNum) {
       if (numListSum > primeTargetNum) {
         flag += 1;
-        if (flag > (q / flag)) {
+        if (flag > (q / (flag * flag))) {
           flag = q;
           break;
         }
-        counter = 0;
-        i = flag - 1;
-        numListSum = 0;
+        counter = 1;
+        i = flag;
+        numListSum = maxPrimeNumList[i];
       }
-      i += 1;
-      numListSum += maxPrimeNumList[i];
-      counter += 1;
+      i += 2;
+      counter += 2;
+      numListSum = numListSum + maxPrimeNumList[i - 1] + maxPrimeNumList[i];
     }
     if (flag === 0 || flag !== q) {
       if (counter > maxCounter) {
@@ -109,12 +110,12 @@ function maxPrimeSum(n) {
     } else {
       maxPrimeSumArr[q] = [primeTargetNum, 1];
     }
-    counter = 1;
-    flag = 0;
+    counter = 2;
+    flag = 1;
     q += 1;
     primeTargetNum = maxPrimeNumList[q];
-    i = 0;
-    numListSum = 2;
+    i = 1;
+    numListSum = 5;
   }
 
   return (maxPrimeSumArr[maxQ]);
