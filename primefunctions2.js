@@ -89,9 +89,7 @@ function maxPrimeSum(n) {
       this.array2 = cumulativeSum(this.array1Change.slice());
       i = 0;
       hOffset = 0;
-      if ((this.array2[i] % 2) === 0) {
-        i++;
-      }
+      if ((this.array2[i] % 2) === 0) i++;
     }
     h = hOffset;
     while (h <= arr1LastIndex) {
@@ -104,15 +102,17 @@ function maxPrimeSum(n) {
         break;
       }
       h += 1;
-      if (this.array1[h] > this.array2[i]) {
-        break;
-      }
+      if (this.array1[h] > this.array2[i]) break;
     }
     i += 2;
+    if (this.array2[i] === undefined) break;
+    // console.log(this.array2[i]);
   }
 
   return (this.keeper[0]);
 }
+
+// console.log(maxPrimeSum(100000));
 
 /*
 I have changed just about everything from my first NON-Optimized code
