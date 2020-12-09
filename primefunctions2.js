@@ -106,13 +106,10 @@ function maxPrimeSum(n) {
     }
     i += 2;
     if (this.array2[i] === undefined) break;
-    // console.log(this.array2[i]);
   }
 
   return (this.keeper[0]);
 }
-
-// console.log(maxPrimeSum(100000));
 
 /*
 I have changed just about everything from my first NON-Optimized code
