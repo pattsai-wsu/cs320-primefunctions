@@ -69,29 +69,6 @@ function cumulativeSum(numListIn) {
   return (this.numList);
 }
 
-/*
-I have changed just about everything from my first NON-Optimized code
-My first optimization was about as good, if not a little better, than this code
-However, I like this code because it's a little more straight forward
-Both are anywhere from .5 to 2 seconds faster than the original code,
-I'm not sure why, but sometimes it's much faster, and when I rerun the code
-it slower.
-
-Changes from HW4:
-1. HW 4 I used a large array to keep track of every [prime_value, consecutive_sum]
-   This code, I use an array but only have one entry for the largest [value, consec]
-   and then I replace if a larger one occurs
-2. In HW5 maxPrimeSum code I use the cummulativeSum function, I did not in HW4
-3. HW5 I only check odd values from the cummulativeSum array, against the array from primeGen
-   HW4 I checked every value
-4. HW5 code, I only check numbers in my cummulativeSum array that are smaller than the
-   largest prime number in my primeGen array
-5. HW5, I use an offset to not check primeGen values I've already checked.
-
-Honestly, I thought these improvements would be much faster. I feel like 10,000 and below
-my code is fast, but when I go for 100,000 it feels sluggish.
- */
-
 // eslint-disable-next-line no-unused-vars
 function maxPrimeSum(n) {
   this.array1 = primeGen(n);
@@ -136,4 +113,26 @@ function maxPrimeSum(n) {
 
   return (this.keeper[0]);
 }
-console.log(maxPrimeSum(100000));
+
+/*
+I have changed just about everything from my first NON-Optimized code
+My first optimization was about as good, if not a little better, than this code
+However, I like this code because it's a little more straight forward
+Both are anywhere from .5 to 2 seconds faster than the original code,
+I'm not sure why, but sometimes it's much faster, and when I rerun the code
+it slower.
+
+Changes from HW4:
+1. HW 4 I used a large array to keep track of every [prime_value, consecutive_sum]
+   This code, I use an array but only have one entry for the largest [value, consec]
+   and then I replace if a larger one occurs
+2. In HW5 maxPrimeSum code I use the cummulativeSum function, I did not in HW4
+3. HW5 I only check odd values from the cummulativeSum array, against the array from primeGen
+   HW4 I checked every value
+4. HW5 code, I only check numbers in my cummulativeSum array that are smaller than the
+   largest prime number in my primeGen array
+5. HW5, I use an offset to not check primeGen values I've already checked.
+
+Honestly, I thought these improvements would be much faster. I feel like 10,000 and below
+my code is fast, but when I go for 100,000 it feels sluggish.
+ */
