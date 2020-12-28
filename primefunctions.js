@@ -1,6 +1,7 @@
 // Name: Patrick Tsai
 // Student ID: 011709316
 // CS320 Homework 4 due Nov. 2, 2020
+// upload to github at end of semester
 
 function primeGen(n) {
   const primesList = [];
